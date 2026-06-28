@@ -77,7 +77,7 @@ pipeline {
         always {
             script {
                 if (fileExists('test-results.xml')) {
-                    junit 'test-results.xml'
+                    junit allowEmptyResults: true, testResults: 'test-results.xml'
                 }
             }
             echo "Pipeline finished for commit: ${env.GIT_COMMIT}"
